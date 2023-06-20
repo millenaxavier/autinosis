@@ -1,5 +1,3 @@
-# Restante do seu código Streamlit...
-streamlit run app.py
 # Inicie um repositório Git no diretório do seu projeto
 git init
 # app.py
