@@ -1,3 +1,5 @@
+git clone https://github.com/millenaxavier/autinosis.git
+
 import pandas as pd
 from sklearn.externals import joblib
 import streamlit as st
