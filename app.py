@@ -1,5 +1,3 @@
-# Inicie um repositório Git no diretório do seu projeto
-git init
 # app.py
 print(app.py)
 # Adicione o arquivo ao controle de versão do Git
