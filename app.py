@@ -1,7 +1,5 @@
 # app.py
 print(app.py)
-# Adicione o arquivo ao controle de versão do Git
-git add app.py
 # Confirme as alterações no repositório Git
 git commit -m "Iniciar o projeto"
 # Instale o Streamlit usando o pip
