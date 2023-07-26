@@ -1,0 +1,154 @@
+import streamlit as st
+import joblib
+
+def create_questionnaire():
+    st.title("Autinosis")
+
+    # Descrições das questões
+    question_descriptions = {
+        1: "A criança olha para você quando chama pelo nome dela?",
+        2: "O quão fácil é para você conseguir contato visual com a criança",
+        3: "A sua criança aponta para indicar que quer alguma coisa?",
+        4: "A criança aponta para compartilhar interesse com você? (ex: apontar para um local interessante)",
+        5: "A criança 'faz de conta'? (ex: ao cuidar de bonecas ou usar um telefone de brinquedo)",
+        6: "A criança acompanha o seu olhar?",
+        7: "Se você ou alguém da família estiver visivelmente aborrecido, a criança mostra sinais de querer confortá-lo?",
+        8: "Descreveria as primeiras palavras da sua criança como?",
+        9: "A criança usa gestos simples (ex: acenar adeus)?",
+        10:"A criança olha fixamente para o nada sem razão aparente?"
+    }
+
+    # Possíveis respostas para cada pergunta
+    question_options = {
+        1: ["Sempre", "Habitualmente", "As vezes", "Raramente", "Em nenhum momento"],
+        2: ["Muito fácil", "Bastante fácil", "Bastante difícil", "Muito difícil", "Impossível"],
+        3: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"],
+        4: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"],
+        5: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"],
+        6: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"],
+        7: ["Sempre", "Habitualmente", "As vezes", "Raramente","Em nenhum momento"],
+        8: ["Muito comuns", "Bastante comuns", "Ligeiramente comuns", "Muito incomuns", "Minha criança não fala"],
+        9: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"],
+        10: ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]
+    }
+
+    
+
+    # Inicializar as respostas do usuário
+    user_answers = []
+
+    # Loop pelas 10 questões
+    for i in range(1, 11):
+        st.subheader(f"Questão {i}")
+
+        # Obter a descrição da pergunta
+        question_description = question_descriptions[i]
+        st.write(question_description)
+
+        # Obter as opções de resposta para a pergunta
+        options = question_options[i]
+        selected_option = st.selectbox(f"Selecione uma resposta para a Questão {i}:", options)
+
+        # Armazenar a resposta selecionada pelo usuário
+        user_answers.append((question_description, selected_option))
+
+        st.write("")  # Adicionar uma linha em branco para separar as questões
+
+    # Botão "Enviar"
+    if st.button("Enviar"):
+        st.subheader("Respostas selecionadas:")
+
+        # Exibir as respostas selecionadas pelo usuário
+        for i, answer in enumerate(user_answers):
+            question_description, selected_option = answer
+            st.write(f"Questão {i+1}:")
+            st.write(f"Descrição: {question_description}")
+            st.write(f"Resposta: {selected_option}")
+            st.write("")  # Adicionar uma linha em branco para separar as respostas
+
+# Chamada da função para criar o questionário
+create_questionnaire()
+
+modelo = joblib.load('child_model.pkl')
+
+entrada_modelo = [int(resposta == 'Sim') for resposta in respostas.values()]
+resultado = modelo.predict([entrada_modelo])
+
+# pergunta 1
+def rule_question_1(answer):
+    if answer in ["As vezes", "Raramente", "Em nenhum momento"]:
+        return 1
+    else:
+        return 0
+
+# pergunta 2
+def rule_question_2(answer):
+    if answer in ["Bastante difícil", "Muito difícil", "Impossível"]:
+        return 1
+    else:
+        return 0
+
+# pergunta 3
+def rule_question_3(answer):
+    if answer in ["Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 4
+def rule_question_4(answer):
+    if answer in ["Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 5
+def rule_question_5(answer):
+    if answer in ["Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 6
+def rule_question_6(answer):
+    if answer in ["Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 7
+def rule_question_7(answer):
+    if answer in ["As vezes", "Raramente","Em nenhum momento"]:
+        return 1
+    else:
+        return 0
+
+
+# pergunta 8
+def rule_question_8(answer):
+    if answer in ["Ligeiramente comuns", "Muito incomuns", "Minha criança não fala"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 9
+def rule_question_9(answer):
+    if answer in ["Algumas vezes por semana", "Menos de uma vez por semana", "Nunca"]:
+        return 1
+    else:
+        return 0
+    
+# pergunta 10
+def rule_question_10(answer):
+    if answer in ["Muitas vezes por dia", "Algumas vezes por dia", "Algumas vezes por semana"]:
+        return 1
+    else:
+        return 0
+
+
+
+RULES = {
+    1: rule_question_1,
+    2: rule_question_2,
+    # Adicione outras perguntas e suas regras personalizadas aqui...
+}
