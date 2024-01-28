@@ -1,6 +1,4 @@
-# autinosis
-app for autism diagnosis 
-Autinosis
+# Autinosis💙
 An artificial intelligence algorithm to help speed autism diagnosis.
 Website: millenaxavier.com/projects
 
