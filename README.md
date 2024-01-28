@@ -6,10 +6,6 @@ Welcome to Autinosis GitHub repository. This is where all the components of the 
 
 Autinosis is algorithm to assist the screening process for autistic spectrum disorders using Machine Learning. This research focuses on observing data from autistic people and their behavioral patterns through data analysis and machine learning so that it is possible to recognize people with this disorder in all ages in a faster and more accessible form to the population.
 
-Table of Contents:
-
-**About the Problem**
-
 
 **About the Problem**
 The problem of the research is the lack of a satisfactory and accessible diagnosis for ASD, considering that from 2020 to 2022 the cases had an increase of 22% [8]. With this sporadic growth of the disorder, there is a huge lack of professionals and specialized centers able to make a proper diagnosis, in addition to the high cost and difficulty in obtaining treatment due to these factors, besides not being 100% accurate given the lack of specialization of some professionals in the area.
