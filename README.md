@@ -8,29 +8,27 @@ Autinosis is algorithm to assist the screening process for autistic spectrum dis
 
 Table of Contents:
 
-About the Problem
-About the Solution
-About the Data
-Evaluation Results
-The Team
-About the Problem
+**About the Problem**
+
+
+**About the Problem**
 The problem of the research is the lack of a satisfactory and accessible diagnosis for ASD, considering that from 2020 to 2022 the cases had an increase of 22% [8]. With this sporadic growth of the disorder, there is a huge lack of professionals and specialized centers able to make a proper diagnosis, in addition to the high cost and difficulty in obtaining treatment due to these factors, besides not being 100% accurate given the lack of specialization of some professionals in the area.
 
 According to the research "Portrait of Autism in Brazil", about 2 million Brazilians are autistic. Even so, the carriers find it difficult to perceive the presence of ASD due to the lack of means of information dissemination about diagnostic medicine.
 
-About the Solution
+**About the Solution**
 Based on the problems pointed out, the identification of behaviors of Autistic Spectrum Disorder through artificial intelligence would be facilitated and would make the diagnosis more effective. Thus, the research focuses on observing data from autistic people and their behavioral patterns through Machine Learning so that it is possible to recognize people with this disorder in a faster and more accessible form to the population. Thus, the research hypothesizes that Machine Learning methods would not only help evaluate the risk for Autism quickly and accurately but would also be essential to simplify the entire diagnostic process, making it less costly and reducing the stress patients and families deal with during too many clinical consultations.
 
 
 
-About the Data
+**About the Data**
 Name	Source	Test	Size (KB)
 Child Dataset	Autism Screening for Toddlers	Q-CHAT-10	68.5
 Adolescent Dataset	UCI Machine Learning Repository	AQ-10	14.5
 Adult Dataset	UCI Machine Learning Repository	AQ-10	96.0
 
 
-Evaluation Results
+**Evaluation Results**
 The screening process is evaluated using three metrics: accuracy, sensitivity and specificity.
 
 Accuracy: The fraction of correct predictions over all the predictions
